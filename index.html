@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSP – Identification of Rural Problems</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Community Service Project – Identification of Rural Problems</h1>
+    <p>Report issues, attach photos, and route them to the concerned departments.</p>
+  </header>
+
+  <main>
+    <!-- Issue Form -->
+    <section class="card">
+      <h2>Report a Rural Issue</h2>
+      <form id="issueForm">
+        <label>Title</label>
+        <input type="text" id="title" placeholder="e.g., Water leakage near school" required>
+
+        <label>Category</label>
+        <select id="category">
+          <option>Water Supply</option>
+          <option>Health & Sanitation</option>
+          <option>Education</option>
+          <option>Agriculture</option>
+          <option>Employment</option>
+          <option>Infrastructure</option>
+          <option>Environment</option>
+          <option>Digital Access</option>
+          <option>Social Welfare</option>
+        </select>
+
+        <label>Severity</label>
+        <select id="severity">
+          <option>Low</option>
+          <option>Medium</option>
+          <option>High</option>
+          <option>Critical</option>
+        </select>
+
+        <label>Description</label>
+        <textarea id="description" rows="4" placeholder="Describe the issue briefly..."></textarea>
+
+        <label>Location</label>
+        <div class="location-box">
+          <input type="text" id="location" placeholder="Enter location or click below">
+          <button type="button" id="locBtn">📍 Use My Location</button>
+        </div>
+
+        <label>Photo</label>
+        <input type="file" id="photoFile" accept="image/*">
+        <img id="photoPreview" style="display:none;max-width:200px;margin-top:10px;border-radius:8px;">
+
+        <button type="submit" class="btn-primary">Add Issue</button>
+      </form>
+    </section>
+
+    <!-- Issues Table -->
+    <section class="card">
+      <h2>Reported Issues</h2>
+      <table id="issuesTable">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Category</th>
+            <th>Severity</th>
+            <th>Location</th>
+            <th>Photo</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+    </section>
+
+    <!-- Analytics -->
+    <section class="card">
+      <h2>Analytics</h2>
+      <canvas id="catChart" height="200"></canvas>
+      <canvas id="sevChart" height="200"></canvas>
+    </section>
+  </main>
+
+  <footer>
+    <p>Built for CSP documentation · Frontend only · Data stored locally in browser</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
